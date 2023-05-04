@@ -2,7 +2,7 @@
 //  WeatherListUITestsLaunchTests.swift
 //  WeatherListUITests
 //
-//  Created by SiwonSchool on 2023/04/28.
+//  Created by ybKim on 2023/04/28.
 //
 
 import XCTest
