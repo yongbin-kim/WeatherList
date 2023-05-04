@@ -14,12 +14,16 @@ class ViewModel {
     
     let UrlStringGeo:String = "https://api.openweathermap.org/geo/1.0/direct"
     let UrlStringDaily:String = "https://api.openweathermap.org/data/2.5/forecast/daily"
-    let apiKey = "ec1890bdba5390c6904ef86e729ed905"
     
     func getGeoData(_ strQuery: String, completion: @escaping(_ success: [Geocoding]?, _ fail: Error?) -> Void) {
+        guard let clientKey = Bundle.main.infoDictionary?["weatherKey"] as? String else {
+            completion(nil, nil)
+            return
+        }
+        
         let param: Parameters = [
             "q":        strQuery,
-            "appid":    apiKey,
+            "appid":    clientKey,
             "limit":    "1"
         ]
         
@@ -41,10 +45,15 @@ class ViewModel {
     }
     
     func getData(_ location: Geocoding, completion:  @escaping(_ success: Weather?, _ fail: Error?) -> Void) {
+        guard let clientKey = Bundle.main.infoDictionary?["weatherKey"] as? String else {
+            completion(nil, nil)
+            return
+        }
+        
         let param: Parameters = [
             "lat":      location.lat ?? 0.0,
             "lon":      location.lon ?? 0.0,
-            "appid":    apiKey,
+            "appid":    clientKey,
             "lang":     "kr"
         ]
         

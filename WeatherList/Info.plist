@@ -26,5 +26,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>weatherKey</key>
+	<string>ec1890bdba5390c6904ef86e729ed905</string>
 </dict>
 </plist>
